@@ -26,9 +26,7 @@ namespace UL.Calculator
                 if (char.IsDigit(expression[i]))
                 {
                     var temp = expression.Substring(i);
-                    int endIndex = temp.IndexOfAny(OperatorBase.AllowedOperators) == -1 ? 1 :
-                                   temp.IndexOfAny(OperatorBase.AllowedOperators);
-
+                    int endIndex = GetEndIndex(temp);
                     temp = expression.Substring(i, endIndex);
                     _numberStack.Push(Convert.ToDouble(temp));
                     i = endIndex == 1 ? i : (i + endIndex - 1);
@@ -50,6 +48,22 @@ namespace UL.Calculator
 
             //Input is completed, emptying stack and finalising calculation
             return GetFinalValue();
+        }
+
+        private static int GetEndIndex(string temp)
+        {
+            //Last single digit
+            if (temp.IndexOfAny(OperatorBase.AllowedOperators) == -1 && temp.Length == 1)
+            {
+                return 1;
+            }
+            else if (temp.IndexOfAny(OperatorBase.AllowedOperators) != -1)
+            {
+                return temp.IndexOfAny(OperatorBase.AllowedOperators);
+            }
+            //Last non-single digit
+
+            return temp.Length;
         }
 
         private void PushOperatorPostEvaluation(char item)

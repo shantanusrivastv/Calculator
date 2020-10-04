@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
 namespace UL.Calculator.WebAPI.Controllers
@@ -11,5 +7,12 @@ namespace UL.Calculator.WebAPI.Controllers
     [ApiController]
     public class CalculatorController : ControllerBase
     {
+        [HttpPost]
+        public async Task<IActionResult> GetCalculation([FromQuery] string expression)
+        {
+            //var result = await _articleServices.CreateArticle(article);
+
+            return Ok("Hello");
+        }
     }
 }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace UL.Calculator.Common.Extensions
+﻿namespace UL.Calculator.Common.Extensions
 {
     public static class CharExtensions
     {
@@ -12,7 +6,7 @@ namespace UL.Calculator.Common.Extensions
         {
             return c - '0';
         }
-        
+
         public static double ToDouble(this char c)
         {
             return char.GetNumericValue(c);

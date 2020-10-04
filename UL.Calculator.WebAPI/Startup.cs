@@ -1,14 +1,10 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 
 namespace UL.Calculator.WebAPI
 {
@@ -25,6 +21,26 @@ namespace UL.Calculator.WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "UL Online Calculator ",
+                    Version = "1",
+                    Description = "Through this API you can Calculate Mathematical Expression.",
+                    Contact = new OpenApiContact()
+                    {
+                        Email = "shantanusrivastv@gmail.com",
+                        Name = "Kumar Shantanu",
+                        Url = new Uri("http://uk.linkedin.com/in/shaan")
+                    },
+                    License = new OpenApiLicense()
+                    {
+                        Name = "MIT License",
+                        Url = new Uri("https://opensource.org/licenses/MIT")
+                    }
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -34,6 +50,13 @@ namespace UL.Calculator.WebAPI
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "News API v1");
+                c.RoutePrefix = string.Empty;
+            });
 
             app.UseRouting();
 

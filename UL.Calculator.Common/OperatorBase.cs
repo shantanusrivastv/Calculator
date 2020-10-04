@@ -5,7 +5,7 @@ namespace UL.Calculator.Common
     public class OperatorBase
     {
         public OperatorPriority Priority { get; set; }
-        public Precedence Precedence { get; set; } = Precedence.LeftToRight; //for future use
+        public OperatorPrecedence Precedence { get; set; } = OperatorPrecedence.LeftToRight; //for future use
 
         public static char[] AllowedOperators => new char[] { '+', '-', '/', '*' };
 

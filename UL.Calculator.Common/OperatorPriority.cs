@@ -2,7 +2,7 @@
 {
     public enum OperatorPriority
     {
-        Addition, Subtraction = 0,
+        Addition, Subtraction = 0, //Same Priority
         Division, Multiplication = 1
     }
 }

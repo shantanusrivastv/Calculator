@@ -88,6 +88,7 @@ namespace UL.Calculator
                 EvaluateExpression();
             }
 
+            //todo remove this in final code
             if (_numberStack.Count > 1)
             {
                 throw new Exception("Something is wrong");

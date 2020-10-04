@@ -1,20 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using UL.Calculator.Common;
+using UL.Calculator.Common.Extensions;
 
 namespace UL.Calculator
 {
     //Shunting-yard algorithm
-    public partial class ExpressionCalculator
+    public class ExpressionCalculator
     {
-        private Dictionary<char, Operator> operatorsMapping;
-        private readonly Stack<double> numberStack;
-        private readonly Stack<char> operatorStack;
+        private readonly Dictionary<char, OperatorBase> _operatorsMapping;
+        private readonly Stack<double> _numberStack;
+        private readonly Stack<char> _operatorStack;
+
 
         public ExpressionCalculator()
         {
-            SetUpMapping();
-            numberStack = new Stack<double>();
-            operatorStack = new Stack<char>();
+            _operatorsMapping = new OperatorMapper().GetMapping();
+            _numberStack = new Stack<double>();
+            _operatorStack = new Stack<char>();
         }
 
         public double Calculate(string expression)
@@ -24,16 +27,14 @@ namespace UL.Calculator
             {
                 if (char.IsDigit(item))
                 {
-                    var test = char.GetNumericValue(item);
-                    var tes1 = item - '0';
-                    numberStack.Push(tes1);
+                    _numberStack.Push(item.ToDouble());
                 }
                 else
                 {
-                    if (operatorStack.TryPeek(out char topOperator))
+                    if (_operatorStack.TryPeek(out char topOperator))
                     {
-                        (operatorsMapping[topOperator].Priority >= operatorsMapping[item].Priority
-                                                        ? new Action<char>(EvaluateExpression)
+                        (_operatorsMapping[topOperator].Priority >= _operatorsMapping[item].Priority
+                                                        ? new Action<char>(PushOperatorPostEvaluation)
                                                         : new Action<char>(PushOperator))(item);
                     }
                     else
@@ -43,65 +44,47 @@ namespace UL.Calculator
                 }
             }
 
-            var final = StartCalculation();
-            return final;
+            //Input is completed, emptying stack and finalising calculation 
+            return  GetFinalValue();
         }
 
-        private double StartCalculation()
+       
+
+        private void PushOperatorPostEvaluation(char item)
         {
-            while (operatorStack.Count > 0)
+            EvaluateExpression();
+            _operatorStack.Push(item);
+        }
+        
+        private void PushOperator(char item)
+        {
+            _operatorStack.Push(item);
+        }
+
+        private double GetFinalValue()
+        {
+            while (_operatorStack.Count > 0)
             {
-                var rightOperand = numberStack.Pop();
-                var leftOperand = numberStack.Pop();
-                var oprator = operatorStack.Pop();
-                var result = Evaluate(leftOperand, rightOperand, oprator);
-                numberStack.Push(result);
+                EvaluateExpression();
             }
 
-            if (numberStack.Count > 1)
+            if (_numberStack.Count > 1)
             {
                 throw new Exception("Something is wrong");
             }
 
-            return numberStack.Pop();
+            return _numberStack.Pop();
+        }
+        private void EvaluateExpression()
+        {
+            var rightOperand = _numberStack.Pop();
+            var leftOperand = _numberStack.Pop();
+            var @operator = _operatorStack.Pop();
+            var result = OperatorBase.Evaluate(leftOperand, rightOperand, @operator);
+            _numberStack.Push(result);
         }
 
-        private void PushOperator(char item)
-        {
-            operatorStack.Push(item);
-        }
 
-        private void EvaluateExpression(char item)
-        {
-            var rightOperand = numberStack.Pop();
-            var leftOperand = numberStack.Pop();
-            var oprator = operatorStack.Pop();
-            var result = Evaluate(leftOperand, rightOperand, oprator);
-            numberStack.Push(result);
-            operatorStack.Push(item);
-        }
-
-        private double Evaluate(double leftOperand, double rightOperand, char oprator)
-        {
-            return oprator switch
-            {
-                '+' => leftOperand + rightOperand,
-                '-' => leftOperand - rightOperand,
-                '*' => leftOperand * rightOperand,
-                '/' => leftOperand / rightOperand,
-                _ => throw new Exception("invalid Operator"),//Added for safety case, validation will prevent this.
-            };
-        }
-
-        public void SetUpMapping()
-        {
-            operatorsMapping = new Dictionary<char, Operator>()
-            {
-                {  '+' , new Operator() { Priority = OperatorPriority.Addition  } },
-                {  '-' , new Operator() { Priority = OperatorPriority.Substraction  } },
-                {  '/' , new Operator() { Priority = OperatorPriority.Division  } },
-                {  '*' , new Operator() { Priority = OperatorPriority.Multiplication  } }
-            };
-        }
+      
     }
 }

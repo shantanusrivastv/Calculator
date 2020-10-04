@@ -5,7 +5,7 @@ namespace UL.Calculator
 {
     public class ExpressionValidator
     {
-        private static readonly char[] allowedOperators = { '+', '-', '/', '*' };
+        private static readonly char[] AllowedOperators = { '+', '-', '/', '*' };
 
         public bool Validate(string expression)
         {
@@ -13,7 +13,7 @@ namespace UL.Calculator
             if (IsFirstCharacterValid(expression)) return false;
             if (IsConsecutiveOpertorExist(expression)) return false;
             if (IsLastCharacterValid(expression)) return false;
-            var test = expression.ToCharArray().Except(allowedOperators)
+            var test = expression.ToCharArray().Except(AllowedOperators)
                                   .Where((x) => !char.IsDigit(x)).ToList();
             return !test.Any();
         }

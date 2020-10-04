@@ -1,8 +1,8 @@
-﻿namespace UL.Calculator
+﻿namespace UL.Calculator.Common
 {
     public enum OperatorPriority
     {
-        Addition, Substraction = 0,
+        Addition, Subtraction = 0,
         Division, Multiplication = 1
     }
 }

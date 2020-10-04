@@ -1,11 +1,12 @@
 ﻿using System.Linq;
 using System.Text.RegularExpressions;
+using UL.Calculator.Common;
 
 namespace UL.Calculator
 {
     public class ExpressionValidator
     {
-        private static readonly char[] AllowedOperators = { '+', '-', '/', '*' };
+        private static readonly char[] AllowedOperators = OperatorBase.AllowedOperators;
 
         public bool Validate(string expression)
         {

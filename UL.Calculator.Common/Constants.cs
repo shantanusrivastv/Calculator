@@ -2,7 +2,7 @@
 
 namespace UL.Calculator.Common
 {
-    public static class Constant
+    public static class Constants
     {
         public static char[] GetAllowedOperators()
         {

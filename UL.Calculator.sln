@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UL.Calculator", "UL.Calculator\UL.Calculator.csproj", "{0F824AD1-CF2F-4B35-8684-B003A9FF52C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UL.Calculator", "UL.Calculator\UL.Calculator.csproj", "{0F824AD1-CF2F-4B35-8684-B003A9FF52C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UL.Calculator.Tests", "UL.Calculator.Tests\UL.Calculator.Tests.csproj", "{7DF9C38D-0EFD-4177-8444-864D6074D6CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UL.Calculator.Tests", "UL.Calculator.Tests\UL.Calculator.Tests.csproj", "{7DF9C38D-0EFD-4177-8444-864D6074D6CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UL.Calculator.WebAPI", "UL.Calculator.WebAPI\UL.Calculator.WebAPI.csproj", "{25F2D2A5-A23D-4E5E-99D0-44B04D8DAF7F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UL.Calculator.WebAPI", "UL.Calculator.WebAPI\UL.Calculator.WebAPI.csproj", "{25F2D2A5-A23D-4E5E-99D0-44B04D8DAF7F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UL.Calculator.Common", "UL.Calculator.Common\UL.Calculator.Common.csproj", "{4866A8F3-B997-4D40-8DA5-F4A3F6C2E753}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UL.Calculator.Common", "UL.Calculator.Common\UL.Calculator.Common.csproj", "{4866A8F3-B997-4D40-8DA5-F4A3F6C2E753}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{C4808416-D9CE-4ADB-A1DF-145C11588A4A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{4866A8F3-B997-4D40-8DA5-F4A3F6C2E753}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4866A8F3-B997-4D40-8DA5-F4A3F6C2E753}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4866A8F3-B997-4D40-8DA5-F4A3F6C2E753}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4808416-D9CE-4ADB-A1DF-145C11588A4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4808416-D9CE-4ADB-A1DF-145C11588A4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4808416-D9CE-4ADB-A1DF-145C11588A4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4808416-D9CE-4ADB-A1DF-145C11588A4A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

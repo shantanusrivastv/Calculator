@@ -21,7 +21,6 @@ namespace UL.Calculator
         public double Calculate(string expression)
         {
             expression = expression.Replace(" ", string.Empty); //Removing Whitespace
-            //foreach (var expression[i] in expression.ToCharArray())
             for (int i = 0; i < expression.Length; i++)
             {
                 if (char.IsDigit(expression[i]))
@@ -32,7 +31,7 @@ namespace UL.Calculator
 
                     temp = expression.Substring(i, endIndex);
                     _numberStack.Push(Convert.ToDouble(temp));
-                    i = endIndex == 1 ? i : i + endIndex - 1;
+                    i = endIndex == 1 ? i : (i + endIndex - 1);
                 }
                 else
                 {

@@ -7,6 +7,8 @@ namespace UL.Calculator.Common
         public OperatorPriority Priority { get; set; }
         public Precedence Precedence { get; set; } = Precedence.LeftToRight; //for future use
 
+        public static char[] AllowedOperators => new char[] { '+', '-', '/', '*' };
+
         public static double Evaluate(double leftOperand, double rightOperand, char @operator)
         {
             return @operator switch
@@ -18,6 +20,5 @@ namespace UL.Calculator.Common
                 _ => throw new Exception("invalid Operator"),//Added for safety case, validation will prevent this.
             };
         }
-
     }
 }

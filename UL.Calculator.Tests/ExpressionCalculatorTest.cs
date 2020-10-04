@@ -18,11 +18,13 @@ namespace UL.Calculator.Tests
             _sut = new ExpressionCalculator();
         }
 
-        [TestCase("2+5*3+2", 19)]
-        [TestCase("4 + 5 * 2", 14)]
-        [TestCase("4+5/2", 6.5d)]
-        [TestCase("4 + 5 / 2 - 1", 5.5d)]
-        [TestCase("4 + 5 / 5 - 9 -5/2", -6.5d)]
+        //[TestCase("552/2", 276)]
+        [TestCase("2-15/3+3", 0)]
+        //[TestCase("2+5*3+2", 19)]
+        //[TestCase("4 + 5 * 2", 14)]
+        //[TestCase("4+5/2", 6.5d)]
+        //[TestCase("4 + 5 / 2 - 1", 5.5d)]
+        //[TestCase("4 + 5 / 5 - 9 -5/2", -6.5d)]
         public void Should_Calculate_Expression(string input, double expected)
         {
             var actual = _sut.Calculate(input);

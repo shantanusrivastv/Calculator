@@ -19,6 +19,7 @@ namespace UL.Calculator.Tests
         }
 
         //[TestCase("552/2", 276)]
+        [TestCase("2-5/5+3", 4)]
         [TestCase("2-15/3+3", 0)]
         //[TestCase("2+5*3+2", 19)]
         //[TestCase("4 + 5 * 2", 14)]

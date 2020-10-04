@@ -57,7 +57,11 @@ namespace UL.Calculator
 
         private void PushOperatorPostEvaluation(char item)
         {
-            EvaluateExpression();
+            while (_operatorStack.Count > 0 && _operatorsMapping[_operatorStack.Peek()].Priority >= _operatorsMapping[item].Priority)
+            {
+                EvaluateExpression();
+            }
+
             _operatorStack.Push(item);
         }
 

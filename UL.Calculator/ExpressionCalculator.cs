@@ -12,7 +12,6 @@ namespace UL.Calculator
         private readonly Stack<double> _numberStack;
         private readonly Stack<char> _operatorStack;
 
-
         public ExpressionCalculator()
         {
             _operatorsMapping = new OperatorMapper().GetMapping();
@@ -44,18 +43,20 @@ namespace UL.Calculator
                 }
             }
 
-            //Input is completed, emptying stack and finalising calculation 
-            return  GetFinalValue();
+            //Input is completed, emptying stack and finalising calculation
+            return GetFinalValue();
         }
-
-       
 
         private void PushOperatorPostEvaluation(char item)
         {
-            EvaluateExpression();
+            while (_operatorStack.Count > 0 && _operatorsMapping[_operatorStack.Peek()].Priority >= _operatorsMapping[item].Priority)
+            {
+                EvaluateExpression();
+            }
+
             _operatorStack.Push(item);
         }
-        
+
         private void PushOperator(char item)
         {
             _operatorStack.Push(item);
@@ -75,6 +76,7 @@ namespace UL.Calculator
 
             return _numberStack.Pop();
         }
+
         private void EvaluateExpression()
         {
             var rightOperand = _numberStack.Pop();
@@ -83,8 +85,5 @@ namespace UL.Calculator
             var result = OperatorBase.Evaluate(leftOperand, rightOperand, @operator);
             _numberStack.Push(result);
         }
-
-
-      
     }
 }

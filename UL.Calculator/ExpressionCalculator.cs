@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using UL.Calculator.Common;
-using UL.Calculator.Common.Extensions;
 
 namespace UL.Calculator
 {
@@ -24,7 +23,6 @@ namespace UL.Calculator
             expression = expression.Replace(" ", string.Empty); //Removing Whitespace
             //foreach (var expression[i] in expression.ToCharArray())
             for (int i = 0; i < expression.Length; i++)
-
             {
                 if (char.IsDigit(expression[i]))
                 {

@@ -2,7 +2,7 @@
 
 namespace UL.Calculator.Common
 {
-    public class OperatorMapper
+    public class OperatorMapper : IOperatorMapper
     {
         public Dictionary<char, OperatorBase> GetMapping()
         {

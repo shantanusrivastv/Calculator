@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using NUnit.Framework;
+using UL.Calculator.Validators;
 
 namespace UL.Calculator.Tests
 {
@@ -19,7 +20,7 @@ namespace UL.Calculator.Tests
         public void Sould_InValidate_Symbols(string invalidExpression)
         {
             //Act
-            var result = _sut.Validate(invalidExpression);
+            var result = _sut.IsValid(invalidExpression);
 
             //Assert
             Assert.IsFalse(result);
@@ -32,7 +33,7 @@ namespace UL.Calculator.Tests
         public void Sould_InValidate_Unsupported_Operators(string invalidExpression)
         {
             //Act
-            var result = _sut.Validate(invalidExpression);
+            var result = _sut.IsValid(invalidExpression);
 
             //Assert
             Assert.IsFalse(result);
@@ -53,7 +54,7 @@ namespace UL.Calculator.Tests
 
             //Act
 
-            var result = _sut.Validate(badInput);
+            var result = _sut.IsValid(badInput);
 
             //Assert
             Assert.IsFalse(result);

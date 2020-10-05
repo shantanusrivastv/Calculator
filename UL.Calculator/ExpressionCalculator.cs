@@ -5,7 +5,7 @@ using UL.Calculator.Common;
 namespace UL.Calculator
 {
     //Shunting-yard algorithm
-    public class ExpressionCalculator
+    public class ExpressionCalculator : IExpressionCalculator
     {
         private readonly Dictionary<char, OperatorBase> _operatorsMapping;
         private readonly Stack<double> _numberStack;
@@ -21,6 +21,13 @@ namespace UL.Calculator
         public double Calculate(string expression)
         {
             expression = expression.Replace(" ", string.Empty); //Removing Whitespace
+            StoreInput(expression);
+            //Storing Input is completed, empting the stack and finalising calculation
+            return GetFinalValue();
+        }
+
+        private void StoreInput(string expression)
+        {
             for (int i = 0; i < expression.Length; i++)
             {
                 if (char.IsDigit(expression[i]))
@@ -45,9 +52,6 @@ namespace UL.Calculator
                     }
                 }
             }
-
-            //Input is completed, emptying stack and finalising calculation
-            return GetFinalValue();
         }
 
         private static int GetEndIndex(string temp)

@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using UL.Calculator.Services.Dependencies;
 
 namespace UL.Calculator.WebAPI
 {
@@ -54,6 +55,8 @@ namespace UL.Calculator.WebAPI
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath);
             });
+
+            ServiceConfigurationManager.ConfigureServiceLifeTime(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

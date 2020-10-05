@@ -12,7 +12,6 @@ const initialState = {
     token: null,
   },
   authorised: false,
-
 };
 
 function App(props) {
@@ -29,8 +28,8 @@ function App(props) {
             render={() => <Login {...store} dispatch={dispatch} />}
           />
           <Route
-            path="/dashboard"
-            render={() => <Dashboard {...store} dispatch={dispatch} />}
+            path="/dash1"
+            render={() => <Dashboard{...store} dispatch={dispatch} />}
           />
         </Switch>
       </Router>

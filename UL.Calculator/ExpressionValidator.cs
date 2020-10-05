@@ -10,6 +10,7 @@ namespace UL.Calculator
 
         public bool Validate(string expression)
         {
+            //Check for non-emty
             //Todo move into one Regx
             if (IsFirstCharacterValid(expression)) return false;
             if (IsConsecutiveOpertorExist(expression)) return false;

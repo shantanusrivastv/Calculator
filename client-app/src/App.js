@@ -8,7 +8,8 @@ import { reducer } from "./store/reducer";
 const initialState = {
   userInfo: {
     name: "",
-    role: "",
+    username: "",
+    subscriptionType: "",
     token: null,
   },
   authorised: false,
@@ -28,7 +29,7 @@ function App(props) {
             render={() => <Login {...store} dispatch={dispatch} />}
           />
           <Route
-            path="/dash1"
+            path="/Dashboard"
             render={() => <Dashboard{...store} dispatch={dispatch} />}
           />
         </Switch>

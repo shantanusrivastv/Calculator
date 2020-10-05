@@ -23,7 +23,6 @@ namespace UL.Calculator.Tests
         [TestCase("4+5/2", 6.5d)]
         [TestCase("4 + 5 / 2 - 1", 5.5d)]
         [TestCase("4 + 5 / 5 - 9 -5/2", -6.5d)]
-        [TestCase("4 + 15 / 15 - 9 -5/2", -6.5d)]
         [TestCase("4+15/3-9-5/2", -2.5d)]
         public void Should_Calculate_Expression(string input, double expected)
         {

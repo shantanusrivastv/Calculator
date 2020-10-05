@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import FormLabel from "@material-ui/core/FormLabel";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import Alert from "@material-ui/lab/Alert";
 import Drawer from "@material-ui/core/Drawer";
 import Box from "@material-ui/core/Box";
 import AppBar from "@material-ui/core/AppBar";
@@ -18,6 +19,8 @@ import Paper from "@material-ui/core/Paper";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import axios from "../Common/axios-news";
+import { Redirect } from "react-router-dom";
+import {actionTypes} from "../Common/constants";
 
 const drawerWidth = 240;
 
@@ -100,7 +103,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Dashboard1() {
+export default function Dashboard1(props) {
+  const { authorised, dispatch } = props;
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const handleDrawerOpen = () => {
@@ -111,7 +115,8 @@ export default function Dashboard1() {
   };
 
   const [Expression, setExpression] = useState("");
-  const [FinalValue, setFinalValue] = useState("Sampel Data");
+  const [ServerResponse, setServerResponse] = useState("");
+  const [ErrorMessage, setErrorMessage] = useState("");
 
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
@@ -119,9 +124,14 @@ export default function Dashboard1() {
     Expression: Expression,
   };
 
+
+
+  if (!authorised) {
+    return <Redirect to={"/"} />; //redirect to Login Screen
+  }
+
   return (
     <div className={classes.root}>
-     
       <CssBaseline />
       <AppBar
         position="absolute"
@@ -152,10 +162,12 @@ export default function Dashboard1() {
           <Button
             color="inherit"
             onClick={() => {
-              alert(2);
+              dispatch({
+                type: actionTypes.LOGOUT,
+              });
             }}
           >
-            LoOut
+            {authorised ? "Logout" : "Login"}
           </Button>
         </Toolbar>
       </AppBar>
@@ -198,10 +210,14 @@ export default function Dashboard1() {
                     axios
                       .post("Calculator", payLoad)
                       .then((response) => {
-                        setFinalValue(response.data);
+                        setServerResponse(response.data);
+                        setErrorMessage(null);
                       })
                       .catch((error) => {
                         console.error(error);
+                        setErrorMessage(error.message);
+                        setServerResponse(null);
+
                       });
                   }}
                 >
@@ -212,7 +228,14 @@ export default function Dashboard1() {
             <Grid item xs={12} className={classes.input}></Grid>
 
             <Grid item xs={12}>
-              <Paper className={classes.paper}>{FinalValue}</Paper>
+              <Paper className={classes.paper}>
+                <FormLabel>
+                  {ErrorMessage && 
+                    <Alert severity="error">{ErrorMessage}</Alert>
+                  }
+                  <h1>{ServerResponse} </h1>
+                </FormLabel>
+              </Paper>
             </Grid>
           </Grid>
           <Box pt={4}></Box>

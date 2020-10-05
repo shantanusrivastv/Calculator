@@ -1,10 +1,9 @@
 using System.Diagnostics;
 using NUnit.Framework;
-using UL.Calculator.Validators;
 
-namespace UL.Calculator.Tests
+namespace UL.Calculator.Validators.Tests
 {
-    public class ExpresionValdatorTest
+    public class ExpressionValidatorTest
     {
         private ExpressionValidator _sut;
 
@@ -17,7 +16,7 @@ namespace UL.Calculator.Tests
         [TestCase("44aABsa")]//Arrange
         [TestCase("44~#@")]
         [TestCase(@"\¬`%£$@")]
-        public void Sould_InValidate_Symbols(string invalidExpression)
+        public void Should_InValidate_Symbols(string invalidExpression)
         {
             //Act
             var result = _sut.IsValid(invalidExpression);
@@ -30,7 +29,7 @@ namespace UL.Calculator.Tests
         [TestCase("4()%&&")]
         [TestCase(@"\¬`%£$@")]
         [TestCase("^%%")]
-        public void Sould_InValidate_Unsupported_Operators(string invalidExpression)
+        public void Should_InValidate_Unsupported_Operators(string invalidExpression)
         {
             //Act
             var result = _sut.IsValid(invalidExpression);
@@ -45,7 +44,7 @@ namespace UL.Calculator.Tests
         [TestCase("2**3")]
         [TestCase("2+3**")]
         [TestCase("2+3*")]
-        public void Sould_InValidate_Expression_For_Bad_Input(string badInput)
+        public void Should_InValidate_Expression_For_Bad_Input(string badInput)
         {
             Debug.WriteLine((int)'*');
             Debug.WriteLine((int)'/');

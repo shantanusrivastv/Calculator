@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\UL.Calculator.Core\UL.Calculator.Core.csproj" />
+    <ProjectReference Include="..\UL.Calculator.Core\UL.Calculator.Core.Model.csproj" />
     <ProjectReference Include="..\UL.Calculator.Validators\UL.Calculator.Validators.csproj" />
     <ProjectReference Include="..\UL.Calculator\UL.Calculator.csproj" />
   </ItemGroup>

@@ -14,7 +14,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\UL.Calculator.Core\UL.Calculator.Core.csproj" />
+	  <ProjectReference Include="..\UL.Calculator.Core\UL.Calculator.Core.Model.csproj" />
 	  <ProjectReference Include="..\UL.Calculator.Services\UL.Calculator.Services.csproj" />
 	</ItemGroup>
 

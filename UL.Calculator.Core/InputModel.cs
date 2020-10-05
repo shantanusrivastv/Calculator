@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace UL.Calculator.Core
+﻿namespace UL.Calculator.Core.Model
 {
     public class InputModel
     {

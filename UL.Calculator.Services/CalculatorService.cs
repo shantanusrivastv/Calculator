@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using UL.Calculator.Core;
+using UL.Calculator.Core.Model;
 using UL.Calculator.Validators;
 
 namespace UL.Calculator.Services

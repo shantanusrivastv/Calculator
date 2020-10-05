@@ -33,7 +33,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{4450A7
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{E02B8A05-AA7E-4C93-A7A2-9277CE471C2E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UL.Calculator.Core", "UL.Calculator.Core\UL.Calculator.Core.csproj", "{3EAC3E23-923C-429E-9A42-D48B61F81BBB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UL.Calculator.Core.Model", "UL.Calculator.Core\UL.Calculator.Core.Model.csproj", "{3EAC3E23-923C-429E-9A42-D48B61F81BBB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

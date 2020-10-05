@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using UL.Calculator.Core;
 using UL.Calculator.Validators;
-using UL.Calculator.WebAPI.Model;
 
 namespace UL.Calculator.Services
 {

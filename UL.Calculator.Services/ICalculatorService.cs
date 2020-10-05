@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using UL.Calculator.WebAPI.Model;
+using UL.Calculator.Core;
 
 namespace UL.Calculator.Services
 {

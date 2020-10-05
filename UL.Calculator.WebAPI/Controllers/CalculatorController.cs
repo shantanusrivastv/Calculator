@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using UL.Calculator.Core;
 using UL.Calculator.Services;
-using UL.Calculator.WebAPI.Model;
 
 namespace UL.Calculator.WebAPI.Controllers
 {/// <summary>

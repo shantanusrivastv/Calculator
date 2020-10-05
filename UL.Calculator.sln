@@ -11,19 +11,29 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UL.Calculator.WebAPI", "UL.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UL.Calculator.Common", "UL.Calculator.Common\UL.Calculator.Common.csproj", "{4866A8F3-B997-4D40-8DA5-F4A3F6C2E753}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UL.Calculator.Services", "UL.Calculator.Services\UL.Calculator.Services.csproj", "{4A8C727C-8EA9-4DED-BF5A-71ABA959F71A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UL.Calculator.Services", "UL.Calculator.Services\UL.Calculator.Services.csproj", "{4A8C727C-8EA9-4DED-BF5A-71ABA959F71A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UL.Calculator.Data", "UL.Calculator.Data\UL.Calculator.Data.csproj", "{866D7A3B-8327-40AF-8410-75A37E9C0384}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UL.Calculator.Data", "UL.Calculator.Data\UL.Calculator.Data.csproj", "{866D7A3B-8327-40AF-8410-75A37E9C0384}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UL.Calculator.Entities", "UL.Calculator.Entities\UL.Calculator.Entities.csproj", "{9686ABE3-1BB2-4811-AC6E-622F20E5A52C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UL.Calculator.Entities", "UL.Calculator.Entities\UL.Calculator.Entities.csproj", "{9686ABE3-1BB2-4811-AC6E-622F20E5A52C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UL.Calculator.Validators", "UL.Calculator.Validators\UL.Calculator.Validators.csproj", "{2E5E6D05-6286-44EA-B574-2FD42AAE45AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UL.Calculator.Validators", "UL.Calculator.Validators\UL.Calculator.Validators.csproj", "{2E5E6D05-6286-44EA-B574-2FD42AAE45AC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{4AB07DB3-0AE9-495F-A3CD-EA14C405434C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UL.Calculator.Validators.Tests", "UL.Calculator.Validators.Tests\UL.Calculator.Validators.Tests.csproj", "{BB3B6D6B-A14E-4D23-A7EE-BADABE8C4C07}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UL.Calculator.Validators.Tests", "UL.Calculator.Validators.Tests\UL.Calculator.Validators.Tests.csproj", "{BB3B6D6B-A14E-4D23-A7EE-BADABE8C4C07}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UL.Calculator.Core", "UL.Calculator.Core\UL.Calculator.Core.csproj", "{DFAC631F-A82F-48FD-9EBB-B6C8432D79B1}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Persistence", "Persistence", "{F5B9607E-1D0F-461C-A261-ED11E18ACE9A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{D74841DE-BF2A-4E3D-927E-E6FE62085939}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{7529468A-6618-4327-9536-8EF2091DD2D1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{4450A7B1-8332-4395-B883-38EEA6C29997}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{E02B8A05-AA7E-4C93-A7A2-9277CE471C2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UL.Calculator.Core", "UL.Calculator.Core\UL.Calculator.Core.csproj", "{3EAC3E23-923C-429E-9A42-D48B61F81BBB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,17 +77,25 @@ Global
 		{BB3B6D6B-A14E-4D23-A7EE-BADABE8C4C07}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB3B6D6B-A14E-4D23-A7EE-BADABE8C4C07}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB3B6D6B-A14E-4D23-A7EE-BADABE8C4C07}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DFAC631F-A82F-48FD-9EBB-B6C8432D79B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DFAC631F-A82F-48FD-9EBB-B6C8432D79B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DFAC631F-A82F-48FD-9EBB-B6C8432D79B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DFAC631F-A82F-48FD-9EBB-B6C8432D79B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EAC3E23-923C-429E-9A42-D48B61F81BBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EAC3E23-923C-429E-9A42-D48B61F81BBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EAC3E23-923C-429E-9A42-D48B61F81BBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EAC3E23-923C-429E-9A42-D48B61F81BBB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{0F824AD1-CF2F-4B35-8684-B003A9FF52C5} = {4450A7B1-8332-4395-B883-38EEA6C29997}
 		{7DF9C38D-0EFD-4177-8444-864D6074D6CF} = {4AB07DB3-0AE9-495F-A3CD-EA14C405434C}
+		{25F2D2A5-A23D-4E5E-99D0-44B04D8DAF7F} = {7529468A-6618-4327-9536-8EF2091DD2D1}
+		{4866A8F3-B997-4D40-8DA5-F4A3F6C2E753} = {4450A7B1-8332-4395-B883-38EEA6C29997}
+		{4A8C727C-8EA9-4DED-BF5A-71ABA959F71A} = {E02B8A05-AA7E-4C93-A7A2-9277CE471C2E}
+		{866D7A3B-8327-40AF-8410-75A37E9C0384} = {F5B9607E-1D0F-461C-A261-ED11E18ACE9A}
+		{9686ABE3-1BB2-4811-AC6E-622F20E5A52C} = {F5B9607E-1D0F-461C-A261-ED11E18ACE9A}
+		{2E5E6D05-6286-44EA-B574-2FD42AAE45AC} = {4450A7B1-8332-4395-B883-38EEA6C29997}
 		{BB3B6D6B-A14E-4D23-A7EE-BADABE8C4C07} = {4AB07DB3-0AE9-495F-A3CD-EA14C405434C}
+		{3EAC3E23-923C-429E-9A42-D48B61F81BBB} = {D74841DE-BF2A-4E3D-927E-E6FE62085939}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {48BCFA42-7303-4DCE-95C6-879E3B1558F8}

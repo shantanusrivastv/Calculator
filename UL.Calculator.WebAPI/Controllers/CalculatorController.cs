@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using UL.Calculator.Core;
@@ -39,7 +40,7 @@ namespace UL.Calculator.WebAPI.Controllers
         /// <returns>Mathematical Evaluation of expression</returns>
         /// <response code="200">Returns successfully Calculated value</response>
         /// <response code="400">For Invalid Input</response>
-        [HttpPost]
+        [HttpPost()]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         //[ApiConventionMethod(typeof(DefaultApiConventions),
@@ -54,7 +55,37 @@ namespace UL.Calculator.WebAPI.Controllers
                 return Ok($"Succss the value is : {result} ");
             }
 
-            return BadRequest("Plese check the offcial documentation ");
+            return BadRequest("Plese check the official documentation ");
+        }
+
+        /// <summary>
+        /// Premium Calculator
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     POST /Calculator/PremiumCalculator
+        ///     {
+        ///        "Expression":  "4+5*2"
+        ///     }
+        /// Return Output: 14
+        ///
+        /// </remarks>
+        /// <param name="inputModel"></param>
+        /// <returns>Mathematical Evaluation of expression</returns>
+        /// <response code="200">Returns successfully Calculated value</response>
+        /// <response code="400">For Invalid Input</response>
+        /// <response code="401">For Invalid Users/ Token</response>
+        /// <response code="401">For Non Premium Users</response>
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        [Authorize(Roles = "Premium")]
+        [HttpPost("/[action]")]
+        public IActionResult PremiumCalculator([FromBody] InputModel inputModel)
+        {
+            return Ok($"The calculated value is {14d}, Thank you for using our {nameof(PremiumCalculator)} ");
         }
     }
 }

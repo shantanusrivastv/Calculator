@@ -11,8 +11,6 @@ using UL.Calculator.Services.Dependencies;
 
 namespace UL.Calculator.WebAPI
 {
-#pragma warning disable CS1591
-
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -67,6 +65,7 @@ namespace UL.Calculator.WebAPI
                 c.IncludeXmlComments(xmlPath);
             });
 
+            ServiceConfigurationManager.ConfigureAuthentication(services, Configuration);
             ServiceConfigurationManager.ConfigurePersistence(services, Configuration);
             ServiceConfigurationManager.ConfigureServiceLifeTime(services);
         }
@@ -98,6 +97,4 @@ namespace UL.Calculator.WebAPI
             });
         }
     }
-
-#pragma warning restore CS1591
 }

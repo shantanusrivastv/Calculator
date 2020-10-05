@@ -45,6 +45,34 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "public", "public", "{3D94200F-ECC1-4521-9A15-B0ABFE12E3E1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A8D5E7A2-FFDE-45A0-A33B-32C9ADECC8EA}"
+	ProjectSection(SolutionItems) = preProject
+		client-app\src\App.css = client-app\src\App.css
+		client-app\src\App.js = client-app\src\App.js
+		client-app\src\App.test.js = client-app\src\App.test.js
+		client-app\src\index.css = client-app\src\index.css
+		client-app\src\index.js = client-app\src\index.js
+		client-app\src\serviceWorker.js = client-app\src\serviceWorker.js
+		client-app\src\setupTests.js = client-app\src\setupTests.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Views", "Views", "{B9D083D0-76BB-4E9D-8697-4C32E4FB8508}"
+	ProjectSection(SolutionItems) = preProject
+		client-app\src\Views\Dashboard.js = client-app\src\Views\Dashboard.js
+		client-app\src\Views\Login.js = client-app\src\Views\Login.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "store", "store", "{38DE2FAD-1F1D-42F3-8484-93BE4F02E46D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{B7D5092D-5C5C-4503-AA64-2762046754F6}"
+	ProjectSection(SolutionItems) = preProject
+		client-app\src\Common\constants.js = client-app\src\Common\constants.js
+		client-app\src\Common\http-helper.js = client-app\src\Common\http-helper.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "reducer", "reducer", "{F991A0AA-2378-481A-8293-46646945F320}"
+	ProjectSection(SolutionItems) = preProject
+		client-app\src\store\reducer\index.js = client-app\src\store\reducer\index.js
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -109,6 +137,10 @@ Global
 		{3EAC3E23-923C-429E-9A42-D48B61F81BBB} = {D74841DE-BF2A-4E3D-927E-E6FE62085939}
 		{3D94200F-ECC1-4521-9A15-B0ABFE12E3E1} = {9960CFE9-6D2C-4171-A9F5-6D8DCD4C5146}
 		{A8D5E7A2-FFDE-45A0-A33B-32C9ADECC8EA} = {9960CFE9-6D2C-4171-A9F5-6D8DCD4C5146}
+		{B9D083D0-76BB-4E9D-8697-4C32E4FB8508} = {A8D5E7A2-FFDE-45A0-A33B-32C9ADECC8EA}
+		{38DE2FAD-1F1D-42F3-8484-93BE4F02E46D} = {A8D5E7A2-FFDE-45A0-A33B-32C9ADECC8EA}
+		{B7D5092D-5C5C-4503-AA64-2762046754F6} = {A8D5E7A2-FFDE-45A0-A33B-32C9ADECC8EA}
+		{F991A0AA-2378-481A-8293-46646945F320} = {38DE2FAD-1F1D-42F3-8484-93BE4F02E46D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {48BCFA42-7303-4DCE-95C6-879E3B1558F8}

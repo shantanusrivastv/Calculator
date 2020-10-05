@@ -25,6 +25,17 @@ namespace UL.Calculator.WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //Security Vulnerability not fit for production
+            services.AddCors(options =>
+            {
+                options.AddPolicy("default", policy =>
+                {
+                    policy.AllowAnyOrigin()
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                });
+            });
+
             services.AddControllers()
                     .ConfigureApiBehaviorOptions(option =>
                     {
@@ -56,6 +67,7 @@ namespace UL.Calculator.WebAPI
                 c.IncludeXmlComments(xmlPath);
             });
 
+            ServiceConfigurationManager.ConfigurePersistence(services, Configuration);
             ServiceConfigurationManager.ConfigureServiceLifeTime(services);
         }
 
@@ -74,8 +86,10 @@ namespace UL.Calculator.WebAPI
                 c.RoutePrefix = string.Empty;
             });
 
+            app.UseCors("default");
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

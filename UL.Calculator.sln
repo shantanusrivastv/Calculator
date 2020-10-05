@@ -43,6 +43,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "client-app", "client-app", 
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "public", "public", "{3D94200F-ECC1-4521-9A15-B0ABFE12E3E1}"
+	ProjectSection(SolutionItems) = preProject
+		client-app\public\favicon.ico = client-app\public\favicon.ico
+		client-app\public\index.html = client-app\public\index.html
+		client-app\public\logo192.png = client-app\public\logo192.png
+		client-app\public\logo512.png = client-app\public\logo512.png
+		client-app\public\manifest.json = client-app\public\manifest.json
+		client-app\public\robots.txt = client-app\public\robots.txt
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A8D5E7A2-FFDE-45A0-A33B-32C9ADECC8EA}"
 	ProjectSection(SolutionItems) = preProject

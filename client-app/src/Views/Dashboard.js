@@ -1,4 +1,5 @@
-import React, { useState,useEffect } from "react";
+import React, { useState } from "react";
+
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -18,9 +19,10 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import axios from "../Common/axios-news";
+
+import axios from "../Common/http-helper";
 import { Redirect } from "react-router-dom";
-import {actionTypes} from "../Common/constants";
+import { actionTypes } from "../Common/constants";
 
 const drawerWidth = 240;
 
@@ -104,7 +106,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Dashboard1(props) {
-  const { authorised, dispatch } = props;
+  const { authorised, userInfo, dispatch } = props;
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const handleDrawerOpen = () => {
@@ -123,8 +125,6 @@ export default function Dashboard1(props) {
   const payLoad = {
     Expression: Expression,
   };
-
-
 
   if (!authorised) {
     return <Redirect to={"/"} />; //redirect to Login Screen
@@ -159,6 +159,20 @@ export default function Dashboard1(props) {
           >
             Dashboard
           </Typography>
+          {userInfo.name && (
+            <Typography
+              align="left"
+              component="h1"
+              variant="h4"
+              color="inherit"
+              display="block"
+              noWrap
+              className={classes.title}
+            >
+              Welcome {userInfo.name}!
+            </Typography>
+          )}
+
           <Button
             color="inherit"
             onClick={() => {
@@ -217,7 +231,6 @@ export default function Dashboard1(props) {
                         console.error(error);
                         setErrorMessage(error.message);
                         setServerResponse(null);
-
                       });
                   }}
                 >
@@ -230,9 +243,9 @@ export default function Dashboard1(props) {
             <Grid item xs={12}>
               <Paper className={classes.paper}>
                 <FormLabel>
-                  {ErrorMessage && 
+                  {ErrorMessage && (
                     <Alert severity="error">{ErrorMessage}</Alert>
-                  }
+                  )}
                   <h1>{ServerResponse} </h1>
                 </FormLabel>
               </Paper>

@@ -6,10 +6,11 @@ import {
   Paper,
   TextField,
 } from "@material-ui/core";
+import Alert from "@material-ui/lab/Alert";
 import React, { useState } from "react";
 import { Redirect, withRouter } from "react-router-dom";
 import { actionTypes } from "../Common/constants";
-import axios from "../Common/axios-news";
+import axios from "../Common/http-helper";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -35,7 +36,7 @@ const Login = (props) => {
   const { dispatch, authorised } = props;
   const [userName, setUserName] = useState("s.Thompson@ul.com");
   const [password, setPassword] = useState("admin");
-  const [errorMessage, setMessage] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(null);
   const [isLogin, setLogin] = useState(false);
   const classes = useStyles();
 
@@ -109,18 +110,20 @@ const Login = (props) => {
                           "userInfo",
                           JSON.stringify(response.data)
                         );
+                        setErrorMessage(null);
                         setLogin(true);
                       })
                       .catch((error) => {
                         console.error(error);
-                        setMessage(error);
+                        setErrorMessage(error.message);
                       });
                   }}
                 >
                   Login
                 </Button>
               </Grid>
-              {errorMessage && <Grid>{errorMessage}</Grid>}
+
+              {errorMessage && <Alert severity="error">{errorMessage}</Alert>}
             </Grid>
           </Paper>
         </Grid>

@@ -23,12 +23,14 @@ namespace UL.Calculator.WebAPI.Controllers
 
         [AllowAnonymous]
         [HttpPost("authenticate")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public IActionResult Authenticate([FromBody] Credentials credentials)
         {
             var user = _userService.Authenticate(credentials);
 
             if (user == null)
-                return BadRequest(new { message = "Username or password is incorrect" });
+                return Unauthorized(new { message = "Username or password is incorrect" });
             return Ok(user);
         }
     }

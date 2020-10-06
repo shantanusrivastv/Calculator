@@ -16,7 +16,7 @@ namespace UL.Calculator.Data
             _context = context;
         }
 
-        [ExcludeFromCodeCoverage]
+        [ExcludeFromCodeCoverage] //For future use
         public IQueryable<TEntity> GetAll()
         {
             try
@@ -29,7 +29,7 @@ namespace UL.Calculator.Data
             }
         }
 
-        [ExcludeFromCodeCoverage]
+        [ExcludeFromCodeCoverage]//For future use
         public async Task<TEntity> AddAsync(TEntity entity)
         {
             if (entity == null)
@@ -50,7 +50,7 @@ namespace UL.Calculator.Data
             }
         }
 
-        [ExcludeFromCodeCoverage]
+        [ExcludeFromCodeCoverage]//For future use
         public async Task<TEntity> UpdateAsync(TEntity entity)
         {
             if (entity == null)
@@ -71,7 +71,7 @@ namespace UL.Calculator.Data
             }
         }
 
-        [ExcludeFromCodeCoverage]
+        [ExcludeFromCodeCoverage]//For future use
         public async Task<bool> Delete<TUniqueType>(TUniqueType uniqueIdentifier)
         {
             TEntity entityToDelete = _context.Find<TEntity>(uniqueIdentifier);

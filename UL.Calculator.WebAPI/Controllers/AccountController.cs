@@ -18,6 +18,22 @@ namespace UL.Calculator.WebAPI.Controllers
             _userService = userService;
         }
 
+        /// <summary>
+        /// Authenticate Credentials
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     POST /account/authenticate
+        ///     {
+        ///        "username": "user",
+        ///        "password": "Your passsword"
+        ///     }
+        /// </remarks>
+        /// <param name="credentials"></param>
+        /// <returns>Userinfo containing Token</returns>
+        /// <response code="200">Returns Userinfo with Token</response>
+        /// <response code="401">For Invalid Credentials</response>
         [AllowAnonymous]
         [HttpPost("authenticate")]
         [ProducesResponseType(StatusCodes.Status200OK)]

@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using UL.Calculator.Core;
 using UL.Calculator.Core.Model;
 using UL.Calculator.Services;
 

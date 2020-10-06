@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace UL.Calculator.Core.Model
+﻿namespace UL.Calculator.Core.Model
 {
     public class UserInfo
     {

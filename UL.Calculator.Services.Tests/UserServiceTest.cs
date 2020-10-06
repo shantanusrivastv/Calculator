@@ -26,7 +26,6 @@ namespace UL.Calculator.Services.Tests
         private IMapper _mapper;
         private Mock<IRepository<UserLogin>> _repository;
         private UserService _sut;
-        private string _secret = "This is the App Secret key which will be used to sign and verify JWT Token, for dev use only ideally needs to be stored in safe place";
 
         [SetUp]
         public void Setup()

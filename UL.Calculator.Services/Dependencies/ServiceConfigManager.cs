@@ -24,7 +24,7 @@ namespace UL.Calculator.Services.Dependencies
             services.AddTransient<IExpressionCalculator, ExpressionCalculator>();
             services.AddTransient<IUserService, UserService>();
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-            services.AddAutoMapper(typeof(CalculatorMapper)); //Registring Mapper
+            services.AddAutoMapper(typeof(CalculatorMapper)); //Registering Mapper
         }
 
         public static void ConfigurePersistence(IServiceCollection services, IConfiguration config)

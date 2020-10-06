@@ -24,7 +24,7 @@ namespace UL.Calculator
         {
             expression = expression.Replace(" ", string.Empty); //Removing Whitespace
             StoreInput(expression);
-            //Storing Input is completed, empting the stack and finalising calculation
+            //Storing Input is completed, emptying the stack and finalising calculation
             return GetFinalValue();
         }
 

@@ -10,7 +10,7 @@ namespace UL.Calculator.Common
 
         public OperatorPrecedence Precedence { get; set; } = OperatorPrecedence.LeftToRight; //for future use
 
-        public static char[] AllowedOperators => new char[] { '+', '-', '/', '*' };
+        public static char[] AllowedOperators => new[] { '+', '-', '/', '*' };
 
         public static double Evaluate(double leftOperand, double rightOperand, char @operator)
         {

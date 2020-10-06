@@ -54,7 +54,7 @@ namespace UL.Calculator.Services
             var key = Encoding.ASCII.GetBytes(appSecret);
             var tokenDescriptor = new SecurityTokenDescriptor
             {
-                Subject = new ClaimsIdentity(new Claim[]
+                Subject = new ClaimsIdentity(new[]
                 {
                     new Claim(ClaimTypes.Name, $"{userLogin.User.FirstName} {userLogin.User.LastName}"),
                     new Claim(ClaimTypes.Role, userLogin.SubscriptionType.ToString()),

@@ -51,10 +51,10 @@ namespace UL.Calculator.WebAPI.Controllers
             if (isValidInput)
             {
                 var result = await _calculatorService.CalculateExpression(inputModel);
-                return Ok($"Calculation is excecuted successfully, the value is : {result} ");
+                return Ok($"Calculation is executed successfully, the value is : {result} ");
             }
 
-            return BadRequest("Invalid Input, Plese check the official documentation ");
+            return BadRequest("Invalid Input, Please check the official documentation ");
         }
 
         /// <summary>

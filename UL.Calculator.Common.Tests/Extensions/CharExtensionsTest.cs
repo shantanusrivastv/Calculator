@@ -1,7 +1,7 @@
 using NUnit.Framework;
 using UL.Calculator.Common.Extensions;
 
-namespace UL.Calculator.Common.Tests
+namespace UL.Calculator.Common.Tests.Extensions
 {
     [TestFixture]
     public class CharExtensionTest

@@ -30,8 +30,8 @@
 		
 ##  Standard User:
 	username: s.Gibbens@ul.com
-        password: admin 
+	password: admin 
 
 ## Free User:
-        username: free@free.com
-        password: user 
+	username: free@free.com
+	password: user 

@@ -9,6 +9,6 @@ namespace UL.Calculator.Services
 {
     public interface IUserService
     {
-        UserInfo Authenticate(Credentials credentials);
+        Task<UserInfo> Authenticate(Credentials credentials);
     }
 }

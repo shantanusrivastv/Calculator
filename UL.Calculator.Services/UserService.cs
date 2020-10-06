@@ -3,6 +3,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
+using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -25,18 +26,18 @@ namespace UL.Calculator.Services
             _repository = repository;
         }
 
-        public UserInfo Authenticate(Credentials credentials)
+        public Task<UserInfo> Authenticate(Credentials credentials)
         {
             var userLogin = VerifyAndGetUserDetails(credentials);
 
             // return null if user not found
             if (userLogin == null)
-                return null;
+                return Task.FromResult<UserInfo>(null);
 
             userLogin.Token = GenerateToken(userLogin);
             UserInfo userInfo = _mapper.Map<UserInfo>(userLogin);
 
-            return userInfo;
+            return Task.FromResult(userInfo);
         }
 
         private UserLogin VerifyAndGetUserDetails(Credentials credentials)

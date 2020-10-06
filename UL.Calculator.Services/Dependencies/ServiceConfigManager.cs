@@ -1,20 +1,24 @@
-﻿using System.Text;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Text;
 using AutoMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using UL.Calculator.Common;
 using UL.Calculator.Data;
 using UL.Calculator.Services.Mapper;
 using UL.Calculator.Validators;
 
 namespace UL.Calculator.Services.Dependencies
 {
+    [ExcludeFromCodeCoverage]
     public static class ServiceConfigurationManager
     {
         public static void ConfigureServiceLifeTime(IServiceCollection services)
         {
+            services.AddTransient<IOperatorMapper, OperatorMapper>();
             services.AddTransient<ICalculatorService, CalculatorService>();
             services.AddTransient<IExpressionValidator, ExpressionValidator>();
             services.AddTransient<IExpressionCalculator, ExpressionCalculator>();

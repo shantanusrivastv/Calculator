@@ -1,5 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
+using UL.Calculator.Common;
 
 namespace UL.Calculator.Tests
 {
@@ -10,10 +11,10 @@ namespace UL.Calculator.Tests
         [SetUp]
         public void Setup()
         {
-            _sut = new ExpressionCalculator();
+            _sut = new ExpressionCalculator(new OperatorMapper());
         }
 
-        [TestCase("2+5+15/3-8", 4)]
+        [TestCase("2+5+15/3-8", 4)]  //Arrange
         [TestCase("515+8449-77918/12", 2470.83d)]
         [TestCase("552/2", 276)]
         [TestCase("2-5/5+3", 4)]
@@ -26,8 +27,10 @@ namespace UL.Calculator.Tests
         [TestCase("4+15/3-9-5/2", -2.5d)]
         public void Should_Calculate_Expression(string input, double expected)
         {
+            //Act
             var actual = _sut.Calculate(input);
 
+            //Assert
             Assert.AreEqual(expected, Math.Round(actual, 2, MidpointRounding.AwayFromZero));
         }
     }

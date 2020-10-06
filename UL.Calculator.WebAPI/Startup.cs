@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Reflection;
 using Microsoft.AspNetCore.Builder;
@@ -11,6 +12,7 @@ using UL.Calculator.Services.Dependencies;
 
 namespace UL.Calculator.WebAPI
 {
+    [ExcludeFromCodeCoverage]
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -45,7 +47,7 @@ namespace UL.Calculator.WebAPI
                 {
                     Title = "UL Online Calculator ",
                     Version = "1",
-                    Description = "Through this API you can Calculate Mathematical Expression.",
+                    Description = "This API is used to evaluate Mathematical Expression.",
                     Contact = new OpenApiContact()
                     {
                         Email = "shantanusrivastv@gmail.com",

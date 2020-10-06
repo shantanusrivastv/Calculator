@@ -54,7 +54,7 @@ namespace UL.Calculator.WebAPI.Controllers
                 return Ok($"Calculation is excecuted successfully, the value is : {result} ");
             }
 
-            return BadRequest("Plese check the official documentation ");
+            return BadRequest("Invalid Input, Plese check the official documentation ");
         }
 
         /// <summary>
@@ -82,6 +82,7 @@ namespace UL.Calculator.WebAPI.Controllers
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [Authorize(Roles = "Premium")]
         [HttpPost("/[action]")]
+        [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage] //Since its not implemented yet
         public IActionResult PremiumCalculator([FromBody] InputModel inputModel)
         {
             return Ok($"The calculated value is {14d}, Thank you for using our {nameof(PremiumCalculator)} ");

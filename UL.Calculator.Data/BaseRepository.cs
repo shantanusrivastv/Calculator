@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ namespace UL.Calculator.Data
             _context = context;
         }
 
+        [ExcludeFromCodeCoverage]
         public IQueryable<TEntity> GetAll()
         {
             try
@@ -27,6 +29,7 @@ namespace UL.Calculator.Data
             }
         }
 
+        [ExcludeFromCodeCoverage]
         public async Task<TEntity> AddAsync(TEntity entity)
         {
             if (entity == null)
@@ -47,6 +50,7 @@ namespace UL.Calculator.Data
             }
         }
 
+        [ExcludeFromCodeCoverage]
         public async Task<TEntity> UpdateAsync(TEntity entity)
         {
             if (entity == null)
@@ -67,6 +71,7 @@ namespace UL.Calculator.Data
             }
         }
 
+        [ExcludeFromCodeCoverage]
         public async Task<bool> Delete<TUniqueType>(TUniqueType uniqueIdentifier)
         {
             TEntity entityToDelete = _context.Find<TEntity>(uniqueIdentifier);

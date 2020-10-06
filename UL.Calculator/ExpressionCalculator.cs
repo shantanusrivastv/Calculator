@@ -8,12 +8,14 @@ namespace UL.Calculator
     public class ExpressionCalculator : IExpressionCalculator
     {
         private readonly Dictionary<char, OperatorBase> _operatorsMapping;
+        private readonly IOperatorMapper _operatorMapper;
         private readonly Stack<double> _numberStack;
         private readonly Stack<char> _operatorStack;
 
-        public ExpressionCalculator()
+        public ExpressionCalculator(IOperatorMapper operatorsMapping)
         {
-            _operatorsMapping = new OperatorMapper().GetMapping();
+            _operatorMapper = operatorsMapping;
+            _operatorsMapping = _operatorMapper.GetMapping();
             _numberStack = new Stack<double>();
             _operatorStack = new Stack<char>();
         }
@@ -80,6 +82,7 @@ namespace UL.Calculator
             _operatorStack.Push(item);
         }
 
+        //Made this separate method as we might want to add some more logic before pushing item
         private void PushOperator(char item)
         {
             _operatorStack.Push(item);
@@ -90,12 +93,6 @@ namespace UL.Calculator
             while (_operatorStack.Count > 0)
             {
                 EvaluateExpression();
-            }
-
-            //todo remove this in final code
-            if (_numberStack.Count > 1)
-            {
-                throw new Exception("Something is wrong");
             }
 
             return _numberStack.Pop();

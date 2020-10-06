@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace UL.Calculator.Common
 {
+    [ExcludeFromCodeCoverage]
     public class OperatorBase
     {
         public OperatorPriority Priority { get; set; }
+
         public OperatorPrecedence Precedence { get; set; } = OperatorPrecedence.LeftToRight; //for future use
 
         public static char[] AllowedOperators => new char[] { '+', '-', '/', '*' };

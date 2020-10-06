@@ -1,0 +1,173 @@
+{
+	"info": {
+		"_postman_id": "aff3b735-7e7e-4174-8d64-5850e62be6e8",
+		"name": "UL-CodingTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "TOKEN",
+			"item": [
+				{
+					"name": "Get Token Premium Subscription",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"s.Thompson@ul.com\",\r\n    \"password\": \"admin\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:57190/api/account/authenticate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "57190",
+							"path": [
+								"api",
+								"account",
+								"authenticate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Token Standard Subscription",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"s.Gibbens@ul.com\",\r\n    \"password\": \"admin\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:57190/api/account/authenticate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "57190",
+							"path": [
+								"api",
+								"account",
+								"authenticate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Toke Free Subscription",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"free@free.com\",\r\n    \"password\": \"user\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:57190/api/account/authenticate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "57190",
+							"path": [
+								"api",
+								"account",
+								"authenticate"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "CalculateExpression",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Expression\":  \"4+5*2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:57190/api/Calculator",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "57190",
+					"path": [
+						"api",
+						"Calculator"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PremiumCalculator",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlNpbW9uICBUaG9tcHNvbiAiLCJyb2xlIjoiUHJlbWl1bSIsIm5hbWVpZCI6InMuVGhvbXBzb25AdWwuY29tIiwibmJmIjoxNjAxOTE5NDIxLCJleHAiOjE2MDI1MjQyMjEsImlhdCI6MTYwMTkxOTQyMX0.sv4M1XV1CV88bbQdxX6RMeghJphKu8fZejxbiVAtJgk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Expression\":  \"4+5*2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:57190/PremiumCalculator",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "57190",
+					"path": [
+						"PremiumCalculator"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

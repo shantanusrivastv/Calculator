@@ -14,7 +14,7 @@
  ### Service App ### 
  1. Open the solution in Visual Studio
  2. Open Package Manager Console
- 3. run update-database
+ 3. run Update-Database
  4. Run the application (ctrl + F5)
  5. By default appliaction will run in localhost:57190
  6. By default application start will load Swagger UI at http://localhost:57190/index.html

@@ -1,4 +1,4 @@
-﻿namespace UL.Calculator.Common
+﻿namespace UL.Calculator.Common.Enums
 {
     public enum OperatorPrecedence
     {

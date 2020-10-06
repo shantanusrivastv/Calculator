@@ -8,14 +8,12 @@ namespace UL.Calculator
     public class ExpressionCalculator : IExpressionCalculator
     {
         private readonly Dictionary<char, OperatorBase> _operatorsMapping;
-        private readonly IOperatorMapper _operatorMapper;
         private readonly Stack<double> _numberStack;
         private readonly Stack<char> _operatorStack;
 
-        public ExpressionCalculator(IOperatorMapper operatorsMapping)
+        public ExpressionCalculator(IOperatorMapper operatorMapper)
         {
-            _operatorMapper = operatorsMapping;
-            _operatorsMapping = _operatorMapper.GetMapping();
+            _operatorsMapping = operatorMapper.GetMapping();
             _numberStack = new Stack<double>();
             _operatorStack = new Stack<char>();
         }

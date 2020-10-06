@@ -26,14 +26,14 @@ namespace UL.Calculator.Data.Tests
             Assert.AreEqual(result.Id, 1);
         }
 
-        private CalculatorDBContext GetContext()
+        private static CalculatorDBContext GetContext()
         {
             var options = new DbContextOptionsBuilder<CalculatorDBContext>()
                              .UseInMemoryDatabase(Guid.NewGuid().ToString())
                              .Options;
 
             var context = new CalculatorDBContext(options);
-            context.User.Add(new User()
+            context.User.Add(new User
             {
                 Id = 1,
                 FirstName = "Simon ",
@@ -41,7 +41,7 @@ namespace UL.Calculator.Data.Tests
                 Email = "s.Thompson@ul.com"
             });
 
-            context.User.Add(new User()
+            context.User.Add(new User
             {
                 Id = 2,
                 FirstName = "Stephanie",

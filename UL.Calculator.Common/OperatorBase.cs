@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using UL.Calculator.Common.Enums;
 
 namespace UL.Calculator.Common
 {
@@ -20,7 +21,7 @@ namespace UL.Calculator.Common
                 '-' => leftOperand - rightOperand,
                 '*' => leftOperand * rightOperand,
                 '/' => leftOperand / rightOperand,
-                _ => throw new Exception("invalid Operator"),//Added for safety case, validation will prevent this.
+                _ => throw new Exception("invalid Operator") //Added for safety case, validation will prevent this.
             };
         }
     }

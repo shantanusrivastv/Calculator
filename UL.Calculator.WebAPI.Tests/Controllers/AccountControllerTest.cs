@@ -60,7 +60,7 @@ namespace UL.Calculator.WebAPI.Tests.Controllers
 
         private static UserInfo MockUserInfoResults()
         {
-            return new UserInfo()
+            return new UserInfo
             {
                 Name = "Simon Thompson",
                 SubscriptionType = "Premium"

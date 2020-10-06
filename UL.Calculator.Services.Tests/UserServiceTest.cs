@@ -75,16 +75,16 @@ namespace UL.Calculator.Services.Tests
             Assert.IsNull(result);
         }
 
-        private IQueryable<UserLogin> MockUserInfoResults()
+        private static IQueryable<UserLogin> MockUserInfoResults()
         {
-            IList<UserLogin> userLogins = new List<UserLogin>()
+            IList<UserLogin> userLogins = new List<UserLogin>
             {
-                new UserLogin()
+                new UserLogin
                 {
                     Username = "s.Thompson@ul.com",
                     Password = "admin",
                     SubscriptionType = SubscriptionType.Premium,
-                    User = new User()
+                    User = new User
                     {
                         FirstName = "Simon",
                         LastName = "Thompson"
@@ -94,13 +94,13 @@ namespace UL.Calculator.Services.Tests
             return userLogins.AsQueryable();
         }
 
-        private IQueryable<UserLogin> MockEmptyUserInfoResults()
+        private static IQueryable<UserLogin> MockEmptyUserInfoResults()
         {
             IList<UserLogin> userLogins = new List<UserLogin>();
             return userLogins.AsQueryable();
         }
 
-        private IConfiguration GetConfiguration()
+        private static IConfiguration GetConfiguration()
         {
             return new ConfigurationBuilder()
                       .SetBasePath(Directory.GetCurrentDirectory())

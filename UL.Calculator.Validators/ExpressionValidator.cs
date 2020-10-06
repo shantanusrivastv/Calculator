@@ -11,15 +11,15 @@ namespace UL.Calculator.Validators
         public bool IsValid(string expression)
         {
             expression = expression.Replace(" ", string.Empty); //Removing Whitespace
-            var IsNullOrEmpty = string.IsNullOrEmpty(expression);
+            var isNullOrEmpty = string.IsNullOrEmpty(expression);
             var startsAndEndWithDigit = new Regex(@"^[\d](.*[\d])?$");
             var hasConsecutiveOperators = new Regex(@"[\W]{2,}");
             var containsUnSupportedOperators =
                                         expression.ToCharArray().Except(AllowedOperators)
-                                       .Where((x) => !char.IsDigit(x));
+                                       .Where(x => !char.IsDigit(x));
 
             //If any of the prior validation fails we do not have to check next validation
-            if (IsNullOrEmpty ||
+            if (isNullOrEmpty ||
                !startsAndEndWithDigit.IsMatch(expression) ||
                hasConsecutiveOperators.IsMatch(expression) ||
                containsUnSupportedOperators.Any())

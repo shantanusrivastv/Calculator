@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UL.Calculator.Common.Enums;
 
 namespace UL.Calculator.Common
 {
@@ -6,12 +7,12 @@ namespace UL.Calculator.Common
     {
         public Dictionary<char, OperatorBase> GetMapping()
         {
-            return new Dictionary<char, OperatorBase>()
+            return new Dictionary<char, OperatorBase>
             {
-                {'+', new OperatorBase() {Priority = OperatorPriority.Addition}},
-                {'-', new OperatorBase() {Priority = OperatorPriority.Subtraction}},
-                {'/', new OperatorBase() {Priority = OperatorPriority.Division}},
-                {'*', new OperatorBase() {Priority = OperatorPriority.Multiplication}}
+                {'+', new OperatorBase {Priority = OperatorPriority.Addition}},
+                {'-', new OperatorBase {Priority = OperatorPriority.Subtraction}},
+                {'/', new OperatorBase {Priority = OperatorPriority.Division}},
+                {'*', new OperatorBase {Priority = OperatorPriority.Multiplication}}
             };
         }
     }

@@ -25,11 +25,11 @@
  ### Login Information ##
  The databse is seeded with the following Login
 ##  Premium User:
-		username: s.Thompson@ul.com
-        password: admin 
+	username: s.Thompson@ul.com
+	password: admin 
 		
 ##  Standard User:
-		username: s.Gibbens@ul.com
+	username: s.Gibbens@ul.com
         password: admin 
 
 ## Free User:
